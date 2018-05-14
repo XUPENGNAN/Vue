@@ -1170,3 +1170,81 @@ var vm = new Vue({
         
 </script>
 ```
+#### vm.$forceUpdate();
+```
+<div id="app">
+    <p @click="add">{{num}}</p>
+    <button onclick="up()">重新渲染</button>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script>
+    let vm = new Vue({
+        el:"#app",
+        data:function(){
+            return {num:1}
+        },
+        methods: {
+            add:function(){
+                this.num +=2;
+            }
+        }
+    });
+
+    function up(){
+        vm.$forceUpdate();
+    }
+```
+#### vm.$mount( [elementOrSelector] ) ,作用手动挂载DOM
+```
+<div id="app">
+    {{num}}
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script>
+    // 当我们定义一个vue实例但是没有进行给el赋予一个dom元素，DOM元素并没有挂载在vue上。可以用vm.$mount("dom选项")；
+    var vm = new Vue({
+        data: {
+            num: 0
+        }
+    });
+
+    vm.$mount("#app");
+</script>
+
+```
+#### vm.$delecte();与Vue.delecte();用来在实例之外删除对象属性，是对数据的一种删除操作
+```
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script>
+    //vm.$delecte();与Vue.delecte();用来在实例之外删除对象属性，是对数据的一种删除操作。
+    let a = {
+        age:19,
+        name:"mn"
+    }
+
+    Vue.delete(a,"name")
+    vm.$delete(a,"age");
+    console.log(a);
+
+    </script>
+```
+#### vm.$set();Vue.set 的作用就是在构造器外部操作构造器内部的数据、属性或者方法
+```
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script>
+     // Vue.set 的作用就是在构造器外部操作构造器内部的数据、属性或者方法。
+    var vm =new Vue({
+        el:"#app",
+        data:function(){
+            return{msg:[1,2,3],
+            num:["o","p","e"]
+            }
+        }
+    });
+
+    Vue.set(vm.num,1,"1");
+    vm.$set(vm.msg,1,"p");
+        
+    console.log(vm.$data.msg);
+    console.log(vm.$data.num);
+```
