@@ -1,18 +1,26 @@
-
 ## Vue-basic
-### MVC与MVVM设计模式
-#### angular使用的MVC的设计模式: MVC指的是 Model View Controller 模型-视图-控制器设计模式
-#### V-View:       视图层，一般是我们的html文件层，用于展示数据内容
-#### C-Controller: 控制器，控制器帮助将M层数据给V,或者当View层数据有所改变时，通知M层，M层数据也做相应的改变
-#### M-Model:      模型，当我们需要使用到数据的时候，数据暂存在这里
 
-### Vue使用的是MVVM设计:
-#### Model：    就是业务逻辑相关的数据对象，通常从数据库映射而来，我们可以说是与数据库对应的model
-#### View：     就是展现出来的用户界面
-#### ViewModel：就是View与Model的连接器
+### MVC 与 MVVM 设计模式
 
-### Vue双大括号模板语法
-#### Vue的双大括号模板语法: Vue通过其底层的模板语法声明式的将数据绑定到DOM元素上。双大括号内可以为纯文本，也可以为表达式。
+#### angular 使用的 MVC 的设计模式: MVC 指的是 Model View Controller 模型-视图-控制器设计模式
+
+#### V-View: 视图层，一般是我们的 html 文件层，用于展示数据内容
+
+#### C-Controller: 控制器，控制器帮助将 M 层数据给 V,或者当 View 层数据有所改变时，通知 M 层，M 层数据也做相应的改变
+
+#### M-Model: 模型，当我们需要使用到数据的时候，数据暂存在这里
+
+### Vue 使用的是 MVVM 设计:
+
+#### Model： 就是业务逻辑相关的数据对象，通常从数据库映射而来，我们可以说是与数据库对应的 model
+
+#### View： 就是展现出来的用户界面
+
+#### ViewModel：就是 View 与 Model 的连接器
+
+### Vue 双大括号模板语法
+
+#### Vue 的双大括号模板语法: Vue 通过其底层的模板语法声明式的将数据绑定到 DOM 元素上。双大括号内可以为纯文本，也可以为表达式。
 
 ```
 <div id="app">                    - View ----------- View -
@@ -21,13 +29,13 @@
 </div>                            - View ----------- View -
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-<script>                         
-    new Vue({                   
+<script>
+    new Vue({
         el:"#app",
         data:{                   - Model ----------- Model -
             mun:23,
             ok:true
-        },                       - Model ----------- Model -                   
+        },                       - Model ----------- Model -
         methods: {               - ViewModel ------ ViewModel -
             getitems(a) {
                 console.log(a);
@@ -36,7 +44,9 @@
 })
 </script>
 ```
-### 渲染函数与template
+
+### 渲染函数与 template
+
 #### template：可以通过选项 template 来渲染 html
 
 ```
@@ -46,7 +56,7 @@
         <ul>
             <li>beijing</li>
             <li>shanghai</li>
-            <li>huangzhou</li>       
+            <li>huangzhou</li>
         </ul>
     </div>
 </script>
@@ -58,8 +68,11 @@
     })
 </script>
 ```
+
 #### render 函数
-#### render 函数渲染模板相当于是js的创建dom节点。还可以在render函数的选项中对dom元素各个属性进行设置。
+
+#### render 函数渲染模板相当于是 js 的创建 dom 节点。还可以在 render 函数的选项中对 dom 元素各个属性进行设置。
+
 ```
 <style>
     .red{
@@ -96,7 +109,9 @@
 ```
 
 ### 指令
+
 #### 条件渲染 v-if
+
 ```
  <div id="app">
     <div v-if="type === 'A'">
@@ -122,9 +137,13 @@
     })
 </script>
 ```
-#### 控制显示 v-show 
-#### v-show与v-if的区别，v-show的显示与隐藏式设置css的dispaly，但是v-if的隐藏是直接删除与添加dom元素。
-#### 因此如果频繁的在隐藏于显示之间切换，最好使用v-show，因为v-if会频繁的渲染dom树非常消耗性能。
+
+#### 控制显示 v-show
+
+#### v-show 与 v-if 的区别，v-show 的显示与隐藏式设置 css 的 dispaly，但是 v-if 的隐藏是直接删除与添加 dom 元素。
+
+#### 因此如果频繁的在隐藏于显示之间切换，最好使用 v-show，因为 v-if 会频繁的渲染 dom 树非常消耗性能。
+
 ```
 <div id="app">
     <button @click="ControlShow_one()"> 点击one </button>
@@ -151,12 +170,14 @@
             ControlShow_two:function(){
                 this.two = this.two ? false : true ;
             },
-                
+
         }
     })
 </script>
 ```
+
 #### 列表渲染 v-for
+
 ```
 <div id="app">
     <ul>
@@ -204,7 +225,9 @@ new Vue({
     }
 });
 ```
+
 #### 属性绑定 v-bind
+
 ```
 //demo-one
 <div id="app">
@@ -220,6 +243,7 @@ new Vue({
     })
 </script>
 ```
+
 ```
 //demo-two
 <style>
@@ -246,7 +270,9 @@ new Vue({
     })
 </script>
 ```
+
 #### 双向数据绑定 v-model
+
 ```
 //demo-one
 <div id="app">
@@ -287,7 +313,9 @@ new Vue({
 
 </script>
 ```
+
 #### 事件绑定 v-on
+
 ```
 <div id="app">
     <button v-on:click=" mun += 1 ">自增</button>
@@ -304,7 +332,9 @@ new Vue({
     })
 </script>
 ```
-#### v-html渲染，v-text文本渲染
+
+#### v-html 渲染，v-text 文本渲染
+
 ```
 <div id="app">
     <p v-html="message"></p>
@@ -334,8 +364,11 @@ new Vue({
     })
 </script>
 ```
-### 全局API
+
+### 全局 API
+
 #### Vue.set();设置对象的属性
+
 ```
 <div id="app">
     <ul>
@@ -363,7 +396,9 @@ new Vue({
     })
 </script>
 ```
+
 #### Vue.delete();删除对象的属性
+
 ```
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 <script>
@@ -375,7 +410,9 @@ new Vue({
     console.log(obj);
 </script>
 ```
-#### Vue.nextTick();由于vue不希望我们直接来操作dom节点，因此使用vue来控制的dom数据改变，vue会有延迟
+
+#### Vue.nextTick();由于 vue 不希望我们直接来操作 dom 节点，因此使用 vue 来控制的 dom 数据改变，vue 会有延迟
+
 ```
 <div id="app">
     <p id="p">{{num}}</p>
@@ -404,7 +441,9 @@ new Vue({
     })
 </script>
 ```
+
 #### Vue.mixin();允许在 method 以外来定义方法
+
 ```
 <div id="app-one">
     {{num}}
@@ -426,7 +465,9 @@ new Vue({
     })
 </script>
 ```
+
 #### Vue.extend();可以扩展一个实例
+
 ```
 <div id="app">{{num}}</div>
 <div id="demo"></div>
@@ -455,7 +496,9 @@ new Vue({
 
 </script>
 ```
+
 #### Vue.filter();全局的过滤器
+
 ```
 <div id="app">
     <p>{{ num | jspang }}</p>
@@ -473,7 +516,9 @@ new Vue({
     })
 </script>
 ```
+
 #### Vue.directive();自定义指令
+
 ```
 <div id="app">
     <p v-jspang>111</p>
@@ -491,54 +536,76 @@ new Vue({
     })
 </script>
 ```
-##### 自定义指令的钩子函数
+
+##### 自定义指令的五个钩子函数（五个生命周期）
+
 ```
 <div id="app">
     <div v-jspang="color" id="demo">
         {{num}}
     </div>
     <button @click="add" id="btn">Add</button>
-    <p><button onclick="unbind();">解绑</button></p>
+    <p>
+        <button onclick="unbind();">解绑</button>
+        <!-- 解绑就不能使用vue的方法了，也就不能执行其他vue的方法了 -->
+    </p>
 </div>
+
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 <script>
-    Vue.directive('jspang', {
-        bind: function () {                //被绑定
-            console.log('1 - bind');
-        },
-        inserted: function () {            //绑定到节点
-            console.log('2 - inserted');
-        },
-        update: function () {              //组件更新
-            console.log('3 - update');
-        },
-        componentUpdated: function () {    //组件更新完成
-            console.log('4 - componentUpdated');
-        },
-        unbind: function () {              //解绑
-            console.log('5 - unbind');
-        }
-    });
-
-    //如何解绑vue
-    function unbind() {
-        vm.$destroy();
+Vue.directive('jspang', {
+    bind: function (el,bind) {                //只执行一次，指令第一次被绑定到元素时调用，用这个钩子函数可义一个绑定时执行一次的初始化动作。
+        console.log('1 - bind');
+        console.log(el);
+        console.log(el.style.color = "red");
+        console.log(bind);
+    },
+    inserted: function (el,bind) {           //被绑定元素插入父节点时调用
+        console.log('2 - inserted');
+        console.log(el);
+        console.log(bind);
+    },
+    update: function (el,bind) {             //被绑定于元素所在的模板更新时调用
+        console.log('3 - update');
+        vm.$data.num = 22;
+        console.log(el);
+        console.log(bind);
+    },
+    componentUpdated: function (el,bind) {   //组件更新完成
+        console.log('4 - componentUpdated');
+        vm.$data.num = 33;
+        console.log(el);
+        console.log(bind);
+    },
+    unbind: function (el,bind) {             //只调用一次，指令与元素解绑时调用
+        console.log('5 - unbind');
+        vm.$data.num = 44;
+        console.log(el);
+        console.log(bind);
     }
-    var vm = new Vue({
-        el: '#app',
-        data: {
-            num: 10,
-            color: 'green'
-        },
-        methods: {
-            add: function () {
-                this.num++;
-            }
+});
+
+//如何解绑vue
+function unbind() {
+    vm.$destroy();
+}
+var vm = new Vue({
+    el: '#app',
+    data: {
+        num: 10,
+        color: 'green'
+    },
+    methods: {
+        add: function () {
+                his.num++;
         }
-    })
+    }
+})
 </script>
 ```
+
 #### Vue.component();定义全局组件，全局组件可以用在任何地方。
+
 ```
 <div id="app">
     <!--组件-->
@@ -563,14 +630,17 @@ new Vue({
 ```
 
 ### options 选项
-#### el ,data :
+
+#### el ,data
+
 ```
  console.log(vm.$data);   //Object
  console.log(vm);         //Vue$3
  console.log(vm.$el);     //<div id="app"></div>
-
 ```
+
 #### computed, methods
+
 ```
 <div id="app">
     <p v-text="firstFun"></p>
@@ -597,7 +667,9 @@ new Vue({
     });
 </script>
 ```
+
 #### props，接收数组，父组件的值传递给子组件
+
 ```
 <div id="app">                    <!--父组件包含子组件,但是由于父组件包含子组件那么这里面的数据都属于父组件的-->
     <child msg="hello"></child>   <!--子组件算是父子间内的数据,在父组件的作用域中-->
@@ -619,7 +691,9 @@ new Vue({
 
 </script>
 ```
+
 #### component 局部组件
+
 ```
 <div id="app">
     <my-child></my-child>
@@ -644,7 +718,9 @@ new Vue({
     })
 </script>
 ```
+
 #### extends，接收对象，扩展实例方法
+
 ```
 <div id="app">
     <p v-text="num"></p>
@@ -682,7 +758,9 @@ new Vue({
     })
 </script>
 ```
+
 #### mixins，接收数组，扩展实例方法
+
 ```
 <div id="app">
     <p v-text="num"></p>
@@ -724,36 +802,66 @@ new Vue({
     })
 </script>
 ```
-#### directives 自定义指令
+
+#### directives 自定义指令，他其中有五个声明周期及五个钩子函数
+
 ```
 <div id="app">
-    <input type="text" v-focus >
+    <input type="text" v-focus :value="message">
+    <button @click="add">Add</button>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 <script>
-    new Vue({
+    let vm = new Vue({
         el: "#app",
         data: {
             message: 1
         },
-        components: {
-            'my-child':{template: '<div>A custom component!</div>'}
+        methods: {
+            add: function () {
+                this.message++;
+            }
         },
         directives: {
             focus: {
-                // 指令的定义
-                inserted: function (el，binding) {
-                    el.focus();
-                    el.style.color="red";
-                    console.log(el);         //dom实例
-                    console.log(binding);    //指令本身
+                bind: function (el, bind) {             //只执行一次，指令第一次被绑定到元素时调用
+                                                        //用这个钩子函数可以定义一绑定时执行一次的初始化动作。
+                    console.log('1 - bind');
+                    console.log(el);
+                    console.log(el.style.color = "red");
+                    console.log(bind);
+                },
+                inserted: function (el, bind) {          //被绑定元素插入父节点时调用
+                    console.log('2 - inserted');
+                    console.log(el);
+                    console.log(bind);
+                },
+                update: function (el, bind) {            //被绑定于元素所在的模板更新时调用
+                    console.log('3 - update');
+                    vm.$data.message = 22;
+                    console.log(el);
+                    console.log(bind);
+                },
+                componentUpdated: function (el, bind) {  //组件更新完成
+                    console.log('4 - componentUpdated');
+                    vm.$data.num = 33;
+                    console.log(el);
+                    console.log(bind);
+                },
+                unbind: function (el, bind) {           //只调用一次，指令与元素解绑时调用
+                    console.log('5 - unbind');
+                    vm.$data.num = 44;
+                    console.log(el);
+                    console.log(bind);
                 }
             }
         }
     })
 </script>
 ```
+
 #### filter 过滤器
+
 ```
 <div id="app">
     <p>金额:{{message | filterFunone | filterFuntwo | filterFunthree }} </p>
@@ -780,7 +888,9 @@ new Vue({
     })
 </script>
 ```
+
 #### 生命周期钩子
+
 ```
 <div id="app">
     <button @click="one">数据更新</button>
@@ -869,7 +979,9 @@ new Vue({
 ```
 
 ### 获取实例属性
+
 #### vm.$el，vm.$data
+
 ```
 <div id="app">
 </div>
@@ -886,7 +998,9 @@ new Vue({
     console.log(vm.$data);   //data对象
 </script>
 ```
+
 #### vm.$children，当前实例的子组件
+
 ```
 <div id="app">
     <child></child>
@@ -905,45 +1019,48 @@ new Vue({
     console.log(vm.$children);
 </script>
 ```
-#### vm.$refs,获取实例的指定的子组件或dom元素
+
+#### vm.$refs,获取实例的指定的子组件或 dom 元素
+
 ```
-   <style>
+<style>
     .red{
         color: blueviolet;
     }
-    </style>
+</style>
 
-
-    <div id="parent">
-        <div ref="profile">qqq</div>
-        <child ref="pro"></child>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-    <script>
-        var parent = new Vue({
-            el: '#parent',
-            components: {
-                'child': {
-                    template: "<div :class={red:red}>{{two}}</div>",
-                    data() {
-                        return {
-                            two: "twooooo",
-                            red:true,
-                        }
+<div id="parent">
+    <div ref="profile">qqq</div>
+    <child ref="pro"></child>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script>
+    var parent = new Vue({
+        el: '#parent',
+        components: {
+            'child': {
+                template: "<div :class={red:red}>{{two}}</div>",
+                data() {
+                    return {
+                        two: "twooooo",
+                        red:true,
                     }
                 }
             }
-        })
-        // 访问子组件实例
-        var childone = parent.$refs.profile;
-        var childtwo = parent.$refs.pro;
-        console.log(childone);
-        console.log(childtwo);
-        childone.style.color = "red";
-        childtwo.$data.two = "oooooooo";
-    </script>
+        }
+    })
+    // 访问子组件实例
+    var childone = parent.$refs.profile;
+    var childtwo = parent.$refs.pro;
+    console.log(childone);
+    console.log(childtwo);
+    childone.style.color = "red";
+    childtwo.$data.two = "oooooooo";
+</script>
 ```
+
 #### vm.$root
+
 ```
 <div id="app"></div>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
@@ -954,8 +1071,11 @@ new Vue({
     console.log(vm.$root);   //如果当前vm有父实例指的他的父实例,如果没有父实例,指的是他自己
 </script>
 ```
+
 #### vm.$on( event, callback );定义在实例上的事件，
+
 #### vm.$emit( event, […args] );用来触发定义在实例上的事件
+
 ```
     <div id="parent">
         <button @click="add">dianji</button>
@@ -971,12 +1091,82 @@ new Vue({
                     vm.$emit('click')
                 }
             }
-            
+
         })
 
         vm.$on('click',function(){
-            console.log("触发了"); 
+            console.log("触发了");
         })
     </script>
 ```
-#### vm.$destroy();销毁vue实例
+#### vm.$off();解绑实例事件,无法解绑v-on绑定在dom元素上的事件。dom元素上的事件可以使用销毁实例来解绑。
+```
+<style>
+.red{
+    color: red;
+}
+</style>
+
+<div id="app">
+    <span :class="{red:isred}">{{message}}</span>
+    <button @click="add()">增加</button>
+    <button onclick="reduce()">减少</button>
+    <button onclick="off()">关闭</button>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            message: 1,
+            isred:false,
+        },
+        methods:{
+            add:function(){
+                this.message++;
+                this.isred = this.isred ? false:true;
+            }
+        }
+        
+    })
+        // 实例事件
+        vm.$on('reduce', function () {
+            this.message --
+        })
+
+        // 关闭事件
+        function off(){
+            vm.$off(vm.add);
+            //vm.$off('reduce');
+        }
+    </script>
+
+```
+#### vm.$destroy();销毁 vue 实例
+```
+<div id="app">
+    <p v-text="num"></p>
+    <button @click="add()">add</button>
+    <button onclick="des()">销毁</button>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script>
+    //完全销毁一个实例。清理它与其它实例的连接，解绑它的全部指令及事件监听器
+    let vm = new Vue({
+        el:"#app",
+        data:function(){
+            return {num:1}
+        },
+        methods: {
+            add:function(){
+                this.num += 2;
+            }
+        }
+    });
+
+    function des(){
+        vm.$destroy()
+    }
+        
+</script>
+```
