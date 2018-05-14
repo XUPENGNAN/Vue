@@ -1,4 +1,5 @@
-### component 组件:组件可以扩展 HTML 元素,封装可重用的代码.组件是自定义元素.
+## Component 组件
+#### component 组件:组件可以扩展 HTML 元素,封装可重用的代码.组件是自定义元素.
 
 #### 1. 全局组件：Vue.component(tagName, {options})；这个全局 API 来声明一个全局组件.
 
