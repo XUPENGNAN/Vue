@@ -1,4 +1,4 @@
-# Vue-basic
+
 ## Vue-basic
 ### MVC与MVVM设计模式
 #### angular使用的MVC的设计模式: MVC指的是 Model View Controller 模型-视图-控制器设计模式
